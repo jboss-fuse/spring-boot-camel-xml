@@ -21,14 +21,11 @@ The example can be built with
 
 You can also run this booster as a standalone project directly:
 
-. Obtain the project and enter the project's directory
-. Build the project:
+Obtain the project and enter the project's directory
+Build the project:
 
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ mvn clean package
-$ mvn spring-boot:run 
-----
+    mvn clean package
+    mvn spring-boot:run 
 
 ### Running the Quickstart on a Single-node OpenShift Cluster
 
@@ -36,23 +33,15 @@ If you have a single-node OpenShift cluster, such as Minishift or the Red Hat Co
 
 To deploy your booster to a running single-node OpenShift cluster:
 
-. Log in and create your project:
-+
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ oc login -u developer -p developer
+Log in and create your project:
 
-$ oc new-project MY_PROJECT_NAME
-----
-. Import base images in your newly created project (MY_PROJECT_NAME):
+    oc login -u developer -p developer
+    oc new-project MY_PROJECT_NAME
 
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ oc import-image fis-java-openshift:2.0 --from=registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0 --confirm
-----
-. Unzip, build and deploy your booster:
+Import base images in your newly created project (MY_PROJECT_NAME):
 
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ mvn clean -DskipTests fabric8:deploy -Popenshift -Dfabric8.generator.fromMode=istag -Dfabric8.generator.from=MY_PROJECT_NAME/fis-java-openshift:2.0
-----
+    oc import-image fis-java-openshift:2.0 --from=registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0 --confirm
+
+Unzip, build and deploy your booster:
+
+    mvn clean -DskipTests fabric8:deploy -Popenshift -Dfabric8.generator.fromMode=istag -Dfabric8.generator.from=MY_PROJECT_NAME/fis-java-openshift:2.0
